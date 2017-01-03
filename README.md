@@ -20,7 +20,7 @@ Graphite is divided in 3 components:
 The version used here is Graphite 0.9.15.
 
 ## Grafana
-[Grafana](http://grafana.org/) is an open source suite used for visualizing time-series data for infrastructure and app analytics, from numerous sources. Grafana has a Graphite query editor that allows to navigate the metric space, add functions, create dashboards, and much more. A particularly useful feature is the possibility to synchronize timescales of different graphs. This helps spotting correlations among different events.
+[Grafana](http://grafana.org/) is an open source suite used for visualizing time-series data, for infrastructure and app analytics. This information can come from numerous resources, like Graphite. Grafana has a Graphite query editor that allows to navigate the metric space, add functions, create dashboards, and much more. A particularly useful feature is the possibility to synchronize timescales of different graphs. This helps spotting correlations among different events.
 
 The version used here is Grafana 4.0.
 
@@ -71,9 +71,9 @@ Check the [documentation](https://collectd.org/documentation.shtml) for more det
 ### Statsd
 [Statsd](https://github.com/etsy/statsd) is a statistics aggregator that can be used to collect and organize data. It can aggregate the values it receives and pass them to Graphite as summarized data points, in the time frame it expects.
 
-Statsd must be installed on the machine running the application. You have to configure it so that it is connected with Graphite. Follow the instructions of this [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04) or the official [documnetation](https://github.com/etsy/statsd/blob/master/docs/graphite.md).
+Statsd must be installed on the machine running the application. You have to configure it so that it is connected with Graphite. Follow the instructions of this [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04) or the official [documentation](https://github.com/etsy/statsd/blob/master/docs/graphite.md).
 
-** Pros and Cons **
+** Pros and Cons of Statsd**
 
 You may ask.. why use Statsd when I can simply send my app's metrics directly to Carbon? Here are some reasons to consider:
 
@@ -88,7 +88,7 @@ Pros
 
 Cons 
 
-1. Operated over UDP, which does not guarantee a reliable transfer of information. However, recent versions can be configured to use TCP. Just think which gives you less headaches.
+1. Operates over UDP, which does not guarantee a reliable transfer of information. However, recent versions can be configured to use TCP. Just think which gives you less headaches.
 
 
 # Start Monitoring
@@ -133,6 +133,7 @@ def login(username, password):
 
 ## Verify your data is in Graphite-Web
 You should have something similar to
+
 ![Graphite-Web](/images/graphite_start.png?raw=true)
 
 
@@ -143,9 +144,10 @@ Let's create elegant dashboards, notifications and alerts for our app with Grafa
 Grafana supports different data sources for your time series data. The following steps show how to add a new Graphite data source to Grafana:
 
 1. Go to the side menu and click on the link named **Data Sources**.
-![Graphite-Web](/images/grafana_data_sources.png?raw=true)
 2. Click the **Add new** link (in the top header).
 3. Enter the http information of your graphite service.
+
+![Graphite-Web](/images/grafana_data_sources.png?raw=true)
 
 This automatically creates a dashboard for Graphite Carbon metrics. You can create additional dashboards for the same data source, which display different metrics. See the next point. 
 
@@ -198,3 +200,11 @@ The following steps show how to configure alerts in Grafana:
         2. Specify the notification message that would be send.
         ![Alert notification](/images/grafana_alert_notification.png?raw=true)
 4. Check that the SMTP settings are properly setup in the Grafana config file ("/etc/grafana/grafana.ini"), in order to enable e-mail notifications. Other notification types need other setups.
+
+# References
+
+1. Grafana official [documentation](http://docs.grafana.org/)
+2. Graphite official [documentation](http://graphite.readthedocs.io/en/latest/)
+3. [An Introduction to Tracking Statistics with Graphite, StatsD, and CollectD](https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd)
+4. Statsd official [documentation](https://github.com/etsy/statsd/blob/master/docs/graphite.md)
+5. Collectd official [documentation](https://collectd.org/documentation.shtml)
