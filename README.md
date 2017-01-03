@@ -17,8 +17,12 @@ Graphite is divided in 3 components:
 2. **Whisper**: time-series database library.
 3. **Graphite-Web**: web application you use to design and plot your data.
 
+The version used here is Graphite 0.9.15.
+
 ## Grafana
 [Grafana](http://grafana.org/) is an open source suite used for visualizing time-series data for infrastructure and app analytics, from numerous sources. Grafana has a Graphite query editor that allows to navigate the metric space, add functions, create dashboards, and much more. A particularly useful feature is the possibility to synchronize timescales of different graphs. This helps spotting correlations among different events.
+
+The version used here is Grafana 4.0.
 
 # How to deliver metrics to Graphite?
 Given that Graphite does not collect data, we need to use other tools to gather them for it. But first, let's have a look at the formats that Graphite expects. Then, we can check some collecting tools and how we can connect them with Graphite.
